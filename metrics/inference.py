@@ -7,7 +7,7 @@ from thop import profile
 def batch(iterable, n=1):
     length = len(iterable)
     for ndx in range(0, length, n):
-        yield iterable[ndx: min(ndx + n, length)]
+        yield iterable[ndx : min(ndx + n, length)]
 
 
 def get_frames_per_second(
@@ -46,8 +46,7 @@ def get_frames_per_second(
 
     total_iterations = len(times)
     print(f"Total batches: {total_iterations}")
-    print(
-        f"Batch Size: {batch_size} | Use Half: {use_half} | Use JIT: {use_jit} | ")
+    print(f"Batch Size: {batch_size} | Use Half: {use_half} | Use JIT: {use_jit} | ")
     fps = 1 / (
         np.sum(times[init_iterations:])
         / (total_iterations - init_iterations)

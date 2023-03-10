@@ -43,8 +43,7 @@ def train_single_epoch(
             )
 
             if not math.isfinite(loss.item()):
-                print("Loss is {}, stopping training".format(
-                    loss.item()), force=True)
+                print("Loss is {}, stopping training".format(loss.item()), force=True)
 
             optimizer.zero_grad()
             loss.backward()
@@ -145,12 +144,10 @@ def test_model(config, dataloader, model, device, split, metrics, plot_cm):
             if config.data_kwargs.many_to_one_setting:
                 pred_flatten = torch.argmax(pred_labels, dim=1)
                 gt_arr = np.append(gt_arr, gt_labels.detach().cpu().numpy())
-                pred_arr = np.append(
-                    pred_arr, pred_flatten.detach().cpu().numpy())
+                pred_arr = np.append(pred_arr, pred_flatten.detach().cpu().numpy())
             else:
                 pred_flatten = torch.argmax(pred_labels, dim=2)
-                gt_arr = np.append(
-                    gt_arr, gt_labels.detach().cpu().numpy(), axis=0)
+                gt_arr = np.append(gt_arr, gt_labels.detach().cpu().numpy(), axis=0)
                 pred_arr = np.append(
                     pred_arr, pred_flatten.detach().cpu().numpy(), axis=0
                 )

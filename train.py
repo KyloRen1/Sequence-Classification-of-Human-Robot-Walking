@@ -77,8 +77,7 @@ if __name__ == "__main__":
     model = create_model(experiment_config).to(device)
 
     optimizer = create_optimizer(experiment_config.optimizer_kwargs, model)
-    lr_scheduler = create_scheduler(
-        experiment_config.optimizer_kwargs, optimizer)
+    lr_scheduler = create_scheduler(experiment_config.optimizer_kwargs, optimizer)
     criterion = create_loss_function(experiment_config)
 
     metrics_folder = os.path.join(
