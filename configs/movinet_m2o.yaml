@@ -3,16 +3,16 @@ model_kwargs:
     name: movinet
     pretrained: True
   temporal:
-    name: null 
+    name: null
 data_kwargs:
   many_to_one_setting: True
   image_size: 224
   num_labels: 4
   seq_len: 5
-  batch_size: 32 
+  batch_size: 32
   class_balancing: True
 experiment_kwargs:
-  loss_function: 
+  loss_function:
     name: focal_loss
     label_smoothing: 0.0
     gamma: 2

@@ -3,7 +3,7 @@ import torch
 def create_optimizer(config, model):
     if config.opt == 'adam':
         optimizer = torch.optim.Adam(
-            model.parameters(), 
+            model.parameters(),
             lr = config.lr,
             weight_decay = config.weight_decay)
     else:
@@ -26,6 +26,3 @@ def create_scheduler(experiment_config, optimizer):
     else:
         raise NotImplementedError
     return lr_scheduler
-
-
-    

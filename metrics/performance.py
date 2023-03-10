@@ -1,5 +1,5 @@
 from sklearn.metrics import (
-    confusion_matrix, f1_score, precision_score, 
+    confusion_matrix, f1_score, precision_score,
     recall_score, accuracy_score
 )
 

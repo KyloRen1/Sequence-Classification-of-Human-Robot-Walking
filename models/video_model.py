@@ -5,11 +5,11 @@ import torch.nn.functional as F
 class StairNetVideoModel(nn.Module):
     def __init__(self, config, encoder: torch.nn.Module, encoder_output_channels: int):
         super().__init__()
-        
-        self.encoder = encoder 
+
+        self.encoder = encoder
         self.many_to_one = config.data_kwargs.many_to_one_setting
         self.temporal_model_name = config.model_kwargs.temporal.name
-        
+
         if self.temporal_model_name == 'lstm':
             self.temporal = nn.LSTM(
                 input_size = encoder_output_channels,
@@ -27,13 +27,13 @@ class StairNetVideoModel(nn.Module):
                 config.data_kwargs.num_labels
             )
         else:
-            raise NotImplementedError 
+            raise NotImplementedError
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         if self.temporal_model_name == 'lstm':
 
             output = list()
-            hidden = None 
+            hidden = None
 
             for frame_idx in range(x.shape[1]):
                 features = self.encoder(x[:, frame_idx, :, :, :])
@@ -42,7 +42,7 @@ class StairNetVideoModel(nn.Module):
                 if not self.many_to_one:
                     idx_output = self.decoder2(F.relu(out))
                     output.append(idx_output)
-            
+
             if not self.many_to_one:
                 output = torch.stack(output)
                 output = output.permute(1, 0, 2)
@@ -53,5 +53,5 @@ class StairNetVideoModel(nn.Module):
                 output = self.decoder2(output)
         else:
             raise NotImplementedError
-        
+
         return output

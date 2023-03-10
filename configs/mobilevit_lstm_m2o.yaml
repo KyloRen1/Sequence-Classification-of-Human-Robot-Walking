@@ -4,7 +4,7 @@ model_kwargs:
     freeze: 3
     pretrained: True
   temporal:
-    name: lstm 
+    name: lstm
     hidden_size: 384
     dropout: 0.3
     n_layers: 2
@@ -13,10 +13,10 @@ data_kwargs:
   image_size: 224
   num_labels: 4
   seq_len: 5
-  batch_size: 32 
+  batch_size: 32
   class_balancing: True
 experiment_kwargs:
-  loss_function: 
+  loss_function:
     name: focal_loss
     label_smoothing: 0.0
     gamma: 2

@@ -29,7 +29,7 @@ class ClassificationHeads(torch.nn.Module):
         output = output.permute(1, 0, 2)
         print(output.shape)
         return output
-    
+
 
 class Reshape(torch.nn.Module):
     def __init__(self, shape):
@@ -41,7 +41,7 @@ class Reshape(torch.nn.Module):
         BS, _ = x.shape
         x = torch.reshape(x, (BS, *self.shape))
         return x
-    
+
 
 class StairNetMoViNet(MoViNet):
   def __init__(self,
@@ -128,21 +128,21 @@ class StairNetMoViNet(MoViNet):
         if many_to_one:
             self.classifier_head = nn.Sequential(
                 nn.Conv3d(
-                    cfg.dense9.hidden_dim, 
-                    num_classes, 
+                    cfg.dense9.hidden_dim,
+                    num_classes,
                     kernel_size=(1,1,1)),
                 nn.Flatten(start_dim=1)
             )
         else:
             self.classifier_head = nn.Sequential(
                 nn.Conv3d(
-                        in_channels = cfg.dense9.hidden_dim, 
-                        out_channels = num_classes * seq_len, 
-                        kernel_size = (1,1,1)), 
+                        in_channels = cfg.dense9.hidden_dim,
+                        out_channels = num_classes * seq_len,
+                        kernel_size = (1,1,1)),
                 ClassificationHeads(
                         in_shape = num_classes * seq_len,
                         out_shape = num_classes,
-                        seq_len = seq_len) 
+                        seq_len = seq_len)
             )
 
         if causal:
@@ -156,10 +156,10 @@ class StairNetMoViNet(MoViNet):
                               .load_state_dict_from_url(cfg.stream_weights))
             else:
                 pretrained_dict = torch.hub.load_state_dict_from_url(cfg.weights)
-            
+
             model_dict = self.state_dict()
             pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
-            model_dict.update(pretrained_dict) 
+            model_dict.update(pretrained_dict)
             self.load_state_dict(model_dict)
         else:
             self.apply(self._weight_init)

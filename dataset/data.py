@@ -18,8 +18,8 @@ class StairnetVideoDataset(Dataset):
             dataset_path (str): path to the frames directory
             many_to_one (bool): switch for seq-to-seq or seq-to-one labels
             image_size (int): size of frames
-        """        
-        
+        """
+
         self.split_file = split_file
         self.split_samples = self._read_sample_file(self.split_file)
         self.label_setting_many_to_one = many_to_one
@@ -31,10 +31,10 @@ class StairnetVideoDataset(Dataset):
             std=(32.,)
         )
 
-    def _read_sample_file(self, path:str) -> List[str]:       
+    def _read_sample_file(self, path:str) -> List[str]:
         samples = open(path).readlines()
         return samples
-    
+
     def _preprocess_labels(self, labels: List) -> np.ndarray:
         """ mapping string labels to index
 
@@ -43,7 +43,7 @@ class StairnetVideoDataset(Dataset):
 
         Returns:
             np.ndarray: array of label indices
-        """        
+        """
         return np.array([self.labels_mapping.index(el) for el in labels])
 
     def _read_video_sample(self, sample: str) -> Tuple[torch.Tensor, torch.Tensor]:
@@ -54,7 +54,7 @@ class StairnetVideoDataset(Dataset):
 
         Returns:
             Tuple[torch.Tensor, torch.Tensor]: torch tensors of frames and labels
-        """        
+        """
         sample = ast.literal_eval(sample)
         frames = np.empty((len(sample['sequence']), self.image_size, self.image_size, 3))
         labels = sample['labels']
@@ -63,11 +63,11 @@ class StairnetVideoDataset(Dataset):
             img_new_path = os.path.join(
                 self.dataset_path, img_class, 'preprocessed ' + img_path.split('/')[-1])
             frames[i, :, :] = np.array(Image.open(img_new_path))
-        
+
         labels = self._preprocess_labels(labels)
         frames = torch.from_numpy(frames)
         labels = torch.tensor(labels)
-        
+
         if self.normalize_video is not None:
             frames = self.normalize_video(frames)
         return frames.to(torch.float32), labels.to(torch.long)
@@ -80,6 +80,6 @@ class StairnetVideoDataset(Dataset):
         if self.label_setting_many_to_one:
             return sample, label[-1]
         return sample, label
-    
+
     def __len__(self):
         return len(self.split_samples)

@@ -13,13 +13,13 @@ def create_sampler(dataset: torch.utils.data, many_to_one: bool, upsample: bool 
     """ DataLoader data sampler
 
     Args:
-        dataset (torch.utils.data): dataset class 
+        dataset (torch.utils.data): dataset class
         many_to_one (bool): switcher for using seq-2-seq labels or seq-to-one lanels
-        upsample (bool, optional): weighted data sampling to balance classes. Defaults to True. 
+        upsample (bool, optional): weighted data sampling to balance classes. Defaults to True.
 
     Returns:
         torch.utils.data.sampler.Sampler: data sampler
-    """    
+    """
     if not upsample:
         return None
     else:
@@ -34,7 +34,7 @@ def create_sampler(dataset: torch.utils.data, many_to_one: bool, upsample: bool 
             else:
                 labels = [dataset[i][1][-1].item() for i in trange(len(dataset), desc='many to many labels')]
             np.savetxt('.cache/labels_counter.txt', np.array(labels), fmt='%d')
-        
+
         if os.path.exists('.cache/class_counts.txt'):
             class_counts = np.loadtxt('.cache/class_counts.txt', dtype=int)
         else:
@@ -42,7 +42,7 @@ def create_sampler(dataset: torch.utils.data, many_to_one: bool, upsample: bool 
             counts = Counter(labels)
             class_counts = np.array([counts[0], counts[1], counts[2], counts[3]])
             np.savetxt('.cache/class_counts.txt', class_counts, fmt='%d')
-        
+
         weights = 1. / class_counts
         samples_weight = np.array([weights[t] for t in labels])
         samples_weight = torch.from_numpy(samples_weight)
@@ -50,7 +50,7 @@ def create_sampler(dataset: torch.utils.data, many_to_one: bool, upsample: bool 
     return sampler
 
 
-def create_dataset(samples_file: str, dataset_path: str, batch_size: int, many_to_one: bool, image_size: int, 
+def create_dataset(samples_file: str, dataset_path: str, batch_size: int, many_to_one: bool, image_size: int,
                    upsample:int = True, split: str = 'train') -> torch.utils.data.DataLoader:
     """ Dataset builder method
 
@@ -65,15 +65,15 @@ def create_dataset(samples_file: str, dataset_path: str, batch_size: int, many_t
 
     Returns:
         torch.utils.data.DataLoader
-    """    
-    
+    """
+
     dataset = StairnetVideoDataset(samples_file, dataset_path, many_to_one, image_size)
 
     sampler = create_sampler(dataset, many_to_one, upsample)
 
     dataloader = data.DataLoader(
-        dataset, 
-        batch_size, 
+        dataset,
+        batch_size,
         shuffle=True if (split == 'train' and not upsample) else False,
         num_workers=4, #8
         sampler = sampler
