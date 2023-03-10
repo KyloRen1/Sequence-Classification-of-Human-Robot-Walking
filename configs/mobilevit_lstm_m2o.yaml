@@ -1,0 +1,32 @@
+model_kwargs:
+  encoder:
+    name: mobilevit_xxs
+    freeze: 3
+    pretrained: True
+  temporal:
+    name: lstm 
+    hidden_size: 384
+    dropout: 0.3
+    n_layers: 2
+data_kwargs:
+  many_to_one_setting: False
+  image_size: 224
+  num_labels: 4
+  seq_len: 5
+  batch_size: 32 
+  class_balancing: True
+experiment_kwargs:
+  loss_function: 
+    name: focal_loss
+    label_smoothing: 0.0
+    gamma: 2
+    reduction: mean
+  start_epoch: 0
+  end_epoch: 2
+optimizer_kwargs:
+  iter_max: 266400
+  lr: 1.0e-04
+  min_lr: 1.0e-05
+  opt: adam
+  sched: cosine_annealing
+  weight_decay: 0.0
