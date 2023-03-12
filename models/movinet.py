@@ -25,9 +25,7 @@ class ClassificationHeads(torch.nn.Module):
             out = net(x)
             output.append(out)
         output = torch.stack(output)
-        print(output.shape)
         output = output.permute(1, 0, 2)
-        print(output.shape)
         return output
 
 

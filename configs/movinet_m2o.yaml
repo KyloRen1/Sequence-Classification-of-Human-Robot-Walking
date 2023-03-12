@@ -18,7 +18,7 @@ experiment_kwargs:
     gamma: 2
     reduction: mean
   start_epoch: 0
-  end_epoch: 2
+  end_epoch: 20
 optimizer_kwargs:
   iter_max: 266400
   lr: 1.0e-04

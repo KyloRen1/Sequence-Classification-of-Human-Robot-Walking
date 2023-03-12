@@ -9,7 +9,7 @@ model_kwargs:
     dropout: 0.3
     n_layers: 2
 data_kwargs:
-  many_to_one_setting: False
+  many_to_one_setting: True
   image_size: 224
   num_labels: 4
   seq_len: 5
@@ -22,7 +22,7 @@ experiment_kwargs:
     gamma: 2
     reduction: mean
   start_epoch: 0
-  end_epoch: 2
+  end_epoch: 20
 optimizer_kwargs:
   iter_max: 266400
   lr: 1.0e-04
