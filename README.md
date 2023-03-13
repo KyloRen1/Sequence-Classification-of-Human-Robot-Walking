@@ -1,5 +1,17 @@
-# Sequence-Classification-of-Human-Robot-Walking
+# Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks
 
+[Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by Bohdan Ivaniuk-Skulskyi, Andrew Garrett Kurbis, Alex Mihailidis3,4, and Brokoslaw Laschowski
+
+
+## Installation
+```python
+python3 -m venv venv
+source venv/bin/activate
+pip install git+https://github.com/Atze00/MoViNet-pytorch.git
+pip install -r requirements.txt
+```
+
+## Model Zoo
 
 <table>
   <tr>
@@ -62,3 +74,28 @@
     <td>-</td>
   </tr>
 </table>
+
+
+## Inference
+Download one checkpoint with its configuration file and run the following command
+```python
+python test.py --experiment_cfg CONFIG.yaml \
+  --dataset_folder $DATASET \
+  --val_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/validation.txt --test_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/test.txt
+```
+
+## Train 
+```python
+python train.py --experiment_cfg CONFIG.yaml \
+  --dataset_folder $DATASET \
+  --val_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/validation.txt --test_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/test.txt
+```
+
+## Confusion matrices
+
+## BibTex
+```
+```
+
+## Acknowledgements
+The visual encoder models are taken from [timm](https://github.com/huggingface/pytorch-image-models) library and the MoViNet is based on [this](https://github.com/Atze00/MoViNet-pytorch) implementation
