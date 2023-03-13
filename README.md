@@ -4,11 +4,21 @@
 
 
 ## Installation
+Create virtual environment and run requirements.txt
 ```python
 python3 -m venv venv
 source venv/bin/activate
 pip install git+https://github.com/Atze00/MoViNet-pytorch.git
 pip install -r requirements.txt
+```
+Install [StairNet](https://ieee-dataport.org/documents/stairnet-computer-vision-dataset-stair-recognition) dataset and run preprocessing file
+```python
+python data_preprocessing/dataset_preprocessing.py --data_folder /path-to-dataset-dir/
+```
+
+Define os environment variable pointing to it
+```sh
+export DATASET=/path-to-preprocessed-dataset-dir/
 ```
 
 ## Model Zoo
@@ -81,19 +91,23 @@ Download one checkpoint with its configuration file and run the following comman
 ```python
 python test.py --experiment_cfg CONFIG.yaml \
   --dataset_folder $DATASET \
-  --val_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/validation.txt --test_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/test.txt
+  --val_samples_file data_splits/validation.txt \
+  --test_samples_file data_splits/test.txt \ 
+  --checkpoint_path CHECKPOINT.pth
 ```
 
 ## Train 
 ```python
 python train.py --experiment_cfg CONFIG.yaml \
   --dataset_folder $DATASET \
-  --val_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/validation.txt --test_samples_file /Users/bogdanivanyuk/Desktop/data_stairnet/video_records/test.txt
+  --train_samples_file data_splits/train.txt \
+  --val_samples_file data_splits/validation.txt \
+  --test_samples_file data_splits/test.txt
 ```
 
 ## Confusion matrices
 <p align="middle">
-  <img src="https://github.com/KyloRen1/Sequence-Classification-of-Human-Robot-Walking/blob/main/assets/confusion_matrix.png" width="350">
+  <img src="https://github.com/KyloRen1/Sequence-Classification-of-Human-Robot-Walking/blob/main/assets/confusion_matrix.png" width="750">
 </p>
 
 ## BibTex
