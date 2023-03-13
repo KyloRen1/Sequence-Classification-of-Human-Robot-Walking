@@ -5,7 +5,7 @@ model_kwargs:
     pretrained: True
   temporal:
     name: lstm
-    hidden_size: 384
+    hidden_size: 256
     dropout: 0.3
     n_layers: 2
 data_kwargs:
