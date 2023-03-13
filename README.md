@@ -92,6 +92,9 @@ python train.py --experiment_cfg CONFIG.yaml \
 ```
 
 ## Confusion matrices
+<p align="middle">
+  <img src="https://github.com/KyloRen1/Sequence-Classification-of-Human-Robot-Walking/blob/main/assets/confusion_matrix.png" width="350">
+</p>
 
 ## BibTex
 ```
