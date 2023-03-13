@@ -21,6 +21,8 @@ Define os environment variable pointing to it
 export DATASET=/path-to-preprocessed-dataset-dir/
 ```
 
+* unzip `data_splits/train.txt` file. 
+
 ## Model Zoo
 
 <table>
