@@ -1,7 +1,8 @@
 # Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks
 
-[Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by Bohdan Ivaniuk-Skulskyi, Andrew Garrett Kurbis, Alex Mihailidis3,4, and Brokoslaw Laschowski
+[Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by Bohdan Ivaniuk-Skulskyi, Andrew Garrett Kurbis, Alex Mihailidis, and Brokoslaw Laschowski
 
+## News
 
 ## Installation
 Create virtual environment and run requirements.txt
