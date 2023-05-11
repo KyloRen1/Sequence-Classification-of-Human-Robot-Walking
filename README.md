@@ -3,6 +3,9 @@
 [Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by Bohdan Ivaniuk-Skulskyi, Andrew Garrett Kurbis, Alex Mihailidis, and Brokoslaw Laschowski
 
 ## News
+***05/05/2023***
+1. Our absrtact accepted to ICRA 2023 Computer Vision for Wearable Robotics Workshop
+
 ***19/04/2023***
 1. Our poster accepted to ICAIR 2023
 
