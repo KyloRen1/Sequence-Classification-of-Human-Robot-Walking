@@ -120,6 +120,13 @@ python train.py --experiment_cfg CONFIG.yaml \
 
 ## BibTex
 ```
+@unknown{unknown,
+author = {Ivanyuk, Bogdan and Kurbis, A. Garrett and Mihailidis, Alex and Laschowski, Brokoslaw},
+year = {2023},
+month = {05},
+pages = {},
+title = {Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks}
+}
 ```
 
 ## Acknowledgements
