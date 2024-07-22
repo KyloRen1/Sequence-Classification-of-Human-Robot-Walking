@@ -3,11 +3,17 @@
 [Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by Bohdan Ivaniuk-Skulskyi, Andrew Garrett Kurbis, Alex Mihailidis, and Brokoslaw Laschowski
 
 ## News
+***10/07/2024***
+- Our absrtact accepted to Toronto Robotics Conference
+
+***10/06/2024***
+- Our paper accepted to IEEE International Conference on Biomedical Robotics and Biomechatronics (BioRob) 2024
+
 ***05/05/2023***
-1. Our absrtact accepted to ICRA 2023 Computer Vision for Wearable Robotics Workshop
+- Our absrtact accepted to ICRA 2023 Computer Vision for Wearable Robotics Workshop
 
 ***19/04/2023***
-1. Our poster accepted to ICAIR 2023
+- Our poster accepted to ICAIR 2023
 
 ## Installation
 Create virtual environment and run requirements.txt
@@ -119,13 +125,38 @@ python train.py --experiment_cfg CONFIG.yaml \
 </p>
 
 ## BibTex
+
+### Sequential image classification of human-robot walking environments using temporal neural networks
+
+```bibtex
+@article {Ivanyuk-Skulskiy2023.11.10.566555,
+  author       = {Ivanyuk-Skulskiy, Bogdan and Kurbis, Andrew Garrett and Mihailidis, Alex and Laschowski, Brokoslaw},
+  title        = {Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks},
+  elocation-id = {2023.11.10.566555},
+  year         = {2023},
+  doi          = {10.1101/2023.11.10.566555},
+  publisher    = {Cold Spring Harbor Laboratory},
+  URL          = {https://www.biorxiv.org/content/early/2023/11/13/2023.11.10.566555},
+  eprint       = {https://www.biorxiv.org/content/early/2023/11/13/2023.11.10.566555.full.pdf},
+  journal      = {bioRxiv}
+}
+
 ```
-@unknown{unknown,
-author = {Ivanyuk, Bogdan and Kurbis, A. Garrett and Mihailidis, Alex and Laschowski, Brokoslaw},
-year = {2023},
-month = {05},
-pages = {},
-title = {Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks}
+
+### StairNet: visual recognition of stairs for human–robot locomotion
+
+```bibtex
+@article{Kurbis2024,
+  author       = {Andrew Garrett Kurbis and Dmytro Kuzmenko and Bogdan Ivanyuk-Skulskiy and Alex Mihailidis and Brokoslaw Laschowski},
+  title        = {StairNet: visual recognition of stairs for human–robot locomotion},
+  journal      = {BioMedical Engineering OnLine},
+  year         = {2024},
+  volume       = {23},
+  number       = {1},
+  pages        = {20},
+  doi          = {10.1186/s12938-024-01216-0},
+  url          = {https://doi.org/10.1186/s12938-024-01216-0},
+  issn         = {1475-925X}
 }
 ```
 
