@@ -1,6 +1,8 @@
 # Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks
 
-[Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by Bohdan Ivaniuk-Skulskyi, Andrew Garrett Kurbis, Alex Mihailidis, and Brokoslaw Laschowski
+[Sequential Image Classification of Human-Robot Walking Environments using Temporal Neural Networks]() by [Bohdan Ivaniuk-Skulskyi](https://github.com/KyloRen1), [Andrew Garrett Kurbis](https://github.com/gKurbis), Alex Mihailidis, and [Brokoslaw Laschowski](https://github.com/DrLaschowski)
+
+Lab: [@Comp-Neuro-Lab](https://github.com/Comp-Neuro-Lab)
 
 ## News
 ***10/07/2024***
